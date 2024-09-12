@@ -1,0 +1,47 @@
+//
+
+import java.util.Scanner;
+
+public class Investigation {
+    public static void main(String[] args){
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int r = sc.nextInt();;
+
+        int result = Ways(n,r);
+
+        System.out.println("Possible ways to fill Cistern:" +result);
+    }
+
+
+
+
+    public static int Ways(int n,int r){
+        int sum = 0;
+        int total_num = 0;
+        while(n!=0){
+            int lastdigit = n%10;
+            sum +=lastdigit;
+            n=n/10;
+        }
+        for(int i = 0;i<r;i++){
+            total_num+=sum;
+        }
+      int final_num = 0;
+       while (total_num!=0){
+           int final_lastdigit = total_num%10;
+           final_num +=final_lastdigit;
+           total_num = total_num/10;
+       }
+       return final_num;
+    }
+
+
+
+
+}
+
+//
+//
