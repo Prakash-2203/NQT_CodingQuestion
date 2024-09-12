@@ -1,0 +1,48 @@
+//
+import java.util.Scanner;
+
+public class fine {
+
+public static void main(String [] args){
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int a[] = new int[n];
+    for(int i=0;i<n;i++){
+         a[i] =sc.nextInt();
+    }
+    int date = sc.nextInt();
+    int fi = sc.nextInt();
+
+    int result = cost(n,a,date,fi);
+    System.out.println("the total fine:" +result);
+}
+
+
+
+    public static int cost(int n,int a[],int date,int fi){
+
+        int odd_digit=0;
+        int even_digit=0;
+
+        for(int i=0;i<n;i++){
+            if(a[i]%2==0){
+                even_digit++;
+            }
+            else {
+                odd_digit++;
+            }
+        }
+        int sum_of_fine = 0;
+        if (date%2==0){
+            sum_of_fine = fi*odd_digit;
+
+        }
+        else {
+            sum_of_fine = fi*even_digit;
+        }
+return sum_of_fine;
+    }
+
+}
+//
+//
