@@ -1,0 +1,21 @@
+//
+
+import java.util.Scanner;
+
+public class SitTogether {
+
+    public static void main(String[] args){
+    Scanner sc = new Scanner(System.in);
+    long n = sc.nextLong();
+
+    long result = ways(n-1);
+        System.out.println("Number of ways:" +(2*result));
+    }
+
+    public static long ways(long n){
+         if(n==0) return 1;
+        return n*ways(n-1);
+    }
+
+}
+//
