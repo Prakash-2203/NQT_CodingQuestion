@@ -1,0 +1,44 @@
+//
+
+
+
+import java.sql.SQLSyntaxErrorException;
+import java.util.*;
+public class Count_Sundays {
+public static void main(String[] args){
+    Scanner sc =new Scanner(System.in);
+    String day=sc.nextLine();
+    int n=sc.nextInt();
+    int result=maximumColor(day,n);
+    System.out.print(result);
+}
+    public static int maximumColor(String s,int L){
+        int result=0;
+        for(int i=0;i<s.length();i+=L){
+            int endIndex=Math.min(i+L,s.length());
+            int count=0;
+            for(int j=i;j<endIndex;j++){
+                if(s.charAt(j)=='a'){
+                    count++;
+                }
+            }
+            result=Math.max(result,count);
+        }
+        return result;
+    }
+
+    public static int sundays(String day,int n){
+        String week []={"mon","tue","wed","thu","fri","sat","sun"};
+        int index=Arrays.asList(week).indexOf(day);
+        int firstSunday=6-index;
+        n-=firstSunday;
+        int count=1;
+        count+=n/7;
+        return count;
+
+    }
+}
+
+//
+
+//
